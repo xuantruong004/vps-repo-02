@@ -1,0 +1,20 @@
+name: Auto Start VPS
+on:
+  schedule:
+  workflow_dispatch:
+
+jobs:
+  auto-vps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+    - uses: actions/checkout@v3
+    - name: Auto VPS Session
+      uses: mxschmitt/action-tmate@v3
+      with:
+        limit-access-to-actor: false
+        sudo: true
+    - name: Keep Alive (Optional)
+      run: |
+        echo "VPS is running..."
+        echo "Started at: $(date)"
