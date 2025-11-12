@@ -1,6 +1,5 @@
 name: Auto Start VPS
 on:
-  schedule:
   workflow_dispatch:
 
 jobs:
